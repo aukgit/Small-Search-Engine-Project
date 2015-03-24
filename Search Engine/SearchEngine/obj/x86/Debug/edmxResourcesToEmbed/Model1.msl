@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SearchEngineModelStoreContainer" CdmEntityContainer="SearchEngineEntities2">
+    <EntitySetMapping Name="FolderTypes">
+      <EntityTypeMapping TypeName="SearchEngineModel.FolderType">
+        <MappingFragment StoreEntitySet="FolderType">
+          <ScalarProperty Name="SuccessfullyCreated" ColumnName="SuccessfullyCreated" />
+          <ScalarProperty Name="SearchingText" ColumnName="SearchingText" />
+          <ScalarProperty Name="Parent" ColumnName="Parent" />
+          <ScalarProperty Name="NestedFolderRead" ColumnName="NestedFolderRead" />
+          <ScalarProperty Name="EndingLimit" ColumnName="EndingLimit" />
+          <ScalarProperty Name="StartingLimit" ColumnName="StartingLimit" />
+          <ScalarProperty Name="FileSizeLimit" ColumnName="FileSizeLimit" />
+          <ScalarProperty Name="IncludeExt" ColumnName="IncludeExt" />
+          <ScalarProperty Name="ExcludeExt" ColumnName="ExcludeExt" />
+          <ScalarProperty Name="LastEntry" ColumnName="LastEntry" />
+          <ScalarProperty Name="FolderName" ColumnName="FolderName" />
+          <ScalarProperty Name="FolderExactLocation" ColumnName="FolderExactLocation" />
+          <ScalarProperty Name="FolderID" ColumnName="FolderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SingleFiles">
+      <EntityTypeMapping TypeName="SearchEngineModel.SingleFile">
+        <MappingFragment StoreEntitySet="SingleFile">
+          <ScalarProperty Name="LastEntryDateTime" ColumnName="LastEntryDateTime" />
+          <ScalarProperty Name="SizeInBytes" ColumnName="SizeInBytes" />
+          <ScalarProperty Name="MD5" ColumnName="MD5" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="AccessDate" ColumnName="AccessDate" />
+          <ScalarProperty Name="IsNoContent" ColumnName="IsNoContent" />
+          <ScalarProperty Name="Content2" ColumnName="Content2" />
+          <ScalarProperty Name="Content1" ColumnName="Content1" />
+          <ScalarProperty Name="FolderID" ColumnName="FolderID" />
+          <ScalarProperty Name="SingleFileID" ColumnName="SingleFileID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PluralDictionaries">
+      <EntityTypeMapping TypeName="SearchEngineModel.PluralDictionary">
+        <MappingFragment StoreEntitySet="PluralDictionary">
+          <ScalarProperty Name="Plural" ColumnName="Plural" />
+          <ScalarProperty Name="Single" ColumnName="Single" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

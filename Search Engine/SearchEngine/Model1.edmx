@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SearchEngineModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SearchEngineModelStoreContainer">
+          <EntitySet Name="FolderType" EntityType="SearchEngineModel.Store.FolderType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PluralDictionary" EntityType="SearchEngineModel.Store.PluralDictionary" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SingleFile" EntityType="SearchEngineModel.Store.SingleFile" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="FolderType">
+          <Key>
+            <PropertyRef Name="FolderID" />
+          </Key>
+          <Property Name="FolderID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FolderExactLocation" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="FolderName" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="LastEntry" Type="datetime" Nullable="false" />
+          <Property Name="ExcludeExt" Type="varchar" MaxLength="100" />
+          <Property Name="IncludeExt" Type="varchar" MaxLength="100" />
+          <Property Name="FileSizeLimit" Type="int" Nullable="false" />
+          <Property Name="StartingLimit" Type="decimal" />
+          <Property Name="EndingLimit" Type="decimal" />
+          <Property Name="NestedFolderRead" Type="bit" Nullable="false" />
+          <Property Name="Parent" Type="bigint" />
+          <Property Name="SearchingText" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="SuccessfullyCreated" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PluralDictionary">
+          <Key>
+            <PropertyRef Name="Single" />
+          </Key>
+          <Property Name="Single" Type="varchar" Nullable="false" MaxLength="80" />
+          <Property Name="Plural" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SingleFile">
+          <Key>
+            <PropertyRef Name="SingleFileID" />
+          </Key>
+          <Property Name="SingleFileID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FolderID" Type="bigint" Nullable="false" />
+          <Property Name="Content1" Type="nvarchar" />
+          <Property Name="Content2" Type="nvarchar" />
+          <Property Name="IsNoContent" Type="bit" Nullable="false" />
+          <Property Name="AccessDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="MD5" Type="varchar" MaxLength="40" />
+          <Property Name="SizeInBytes" Type="decimal" Nullable="false" />
+          <Property Name="LastEntryDateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SearchEngineModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="SearchEngineEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FolderTypes" EntityType="SearchEngineModel.FolderType" />
+          <EntitySet Name="SingleFiles" EntityType="SearchEngineModel.SingleFile" />
+          <EntitySet Name="PluralDictionaries" EntityType="SearchEngineModel.PluralDictionary" />
+        </EntityContainer>
+        <EntityType Name="FolderType">
+          <Key>
+            <PropertyRef Name="FolderID" />
+          </Key>
+          <Property Type="Int64" Name="FolderID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FolderExactLocation" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FolderName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="LastEntry" Nullable="false" />
+          <Property Type="String" Name="ExcludeExt" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IncludeExt" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="FileSizeLimit" Nullable="false" />
+          <Property Type="Decimal" Name="StartingLimit" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="EndingLimit" Precision="18" Scale="0" />
+          <Property Type="Boolean" Name="NestedFolderRead" Nullable="false" />
+          <Property Type="Int64" Name="Parent" />
+          <Property Type="String" Name="SearchingText" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="SuccessfullyCreated" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SingleFile">
+          <Key>
+            <PropertyRef Name="SingleFileID" />
+          </Key>
+          <Property Type="Int64" Name="SingleFileID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="FolderID" Nullable="false" />
+          <Property Type="String" Name="Content1" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Content2" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsNoContent" Nullable="false" />
+          <Property Type="DateTime" Name="AccessDate" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" />
+          <Property Type="String" Name="MD5" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="SizeInBytes" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="LastEntryDateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PluralDictionary">
+          <Key>
+            <PropertyRef Name="Single" />
+          </Key>
+          <Property Type="String" Name="Single" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Plural" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SearchEngineModelStoreContainer" CdmEntityContainer="SearchEngineEntities2">
+          <EntitySetMapping Name="FolderTypes">
+            <EntityTypeMapping TypeName="SearchEngineModel.FolderType">
+              <MappingFragment StoreEntitySet="FolderType">
+                <ScalarProperty Name="SuccessfullyCreated" ColumnName="SuccessfullyCreated" />
+                <ScalarProperty Name="SearchingText" ColumnName="SearchingText" />
+                <ScalarProperty Name="Parent" ColumnName="Parent" />
+                <ScalarProperty Name="NestedFolderRead" ColumnName="NestedFolderRead" />
+                <ScalarProperty Name="EndingLimit" ColumnName="EndingLimit" />
+                <ScalarProperty Name="StartingLimit" ColumnName="StartingLimit" />
+                <ScalarProperty Name="FileSizeLimit" ColumnName="FileSizeLimit" />
+                <ScalarProperty Name="IncludeExt" ColumnName="IncludeExt" />
+                <ScalarProperty Name="ExcludeExt" ColumnName="ExcludeExt" />
+                <ScalarProperty Name="LastEntry" ColumnName="LastEntry" />
+                <ScalarProperty Name="FolderName" ColumnName="FolderName" />
+                <ScalarProperty Name="FolderExactLocation" ColumnName="FolderExactLocation" />
+                <ScalarProperty Name="FolderID" ColumnName="FolderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SingleFiles">
+            <EntityTypeMapping TypeName="SearchEngineModel.SingleFile">
+              <MappingFragment StoreEntitySet="SingleFile">
+                <ScalarProperty Name="LastEntryDateTime" ColumnName="LastEntryDateTime" />
+                <ScalarProperty Name="SizeInBytes" ColumnName="SizeInBytes" />
+                <ScalarProperty Name="MD5" ColumnName="MD5" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="AccessDate" ColumnName="AccessDate" />
+                <ScalarProperty Name="IsNoContent" ColumnName="IsNoContent" />
+                <ScalarProperty Name="Content2" ColumnName="Content2" />
+                <ScalarProperty Name="Content1" ColumnName="Content1" />
+                <ScalarProperty Name="FolderID" ColumnName="FolderID" />
+                <ScalarProperty Name="SingleFileID" ColumnName="SingleFileID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PluralDictionaries">
+            <EntityTypeMapping TypeName="SearchEngineModel.PluralDictionary">
+              <MappingFragment StoreEntitySet="PluralDictionary">
+                <ScalarProperty Name="Plural" ColumnName="Plural" />
+                <ScalarProperty Name="Single" ColumnName="Single" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="SearchEngineModel.FolderType" Width="1.5" PointX="0.75" PointY="0.75" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="SearchEngineModel.SingleFile" Width="1.5" PointX="2.75" PointY="0.75" Height="3.1340950520833335" />
+        <EntityTypeShape EntityType="SearchEngineModel.PluralDictionary" Width="1.5" PointX="0.75" PointY="4.75" Height="1.4033821614583317" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

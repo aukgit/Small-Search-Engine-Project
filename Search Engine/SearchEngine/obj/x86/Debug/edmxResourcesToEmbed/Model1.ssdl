@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SearchEngineModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="SearchEngineModelStoreContainer">
+    <EntitySet Name="FolderType" EntityType="SearchEngineModel.Store.FolderType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PluralDictionary" EntityType="SearchEngineModel.Store.PluralDictionary" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SingleFile" EntityType="SearchEngineModel.Store.SingleFile" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="FolderType">
+    <Key>
+      <PropertyRef Name="FolderID" />
+    </Key>
+    <Property Name="FolderID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FolderExactLocation" Type="nvarchar" Nullable="false" MaxLength="1000" />
+    <Property Name="FolderName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="LastEntry" Type="datetime" Nullable="false" />
+    <Property Name="ExcludeExt" Type="varchar" MaxLength="100" />
+    <Property Name="IncludeExt" Type="varchar" MaxLength="100" />
+    <Property Name="FileSizeLimit" Type="int" Nullable="false" />
+    <Property Name="StartingLimit" Type="decimal" />
+    <Property Name="EndingLimit" Type="decimal" />
+    <Property Name="NestedFolderRead" Type="bit" Nullable="false" />
+    <Property Name="Parent" Type="bigint" />
+    <Property Name="SearchingText" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="SuccessfullyCreated" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PluralDictionary">
+    <Key>
+      <PropertyRef Name="Single" />
+    </Key>
+    <Property Name="Single" Type="varchar" Nullable="false" MaxLength="80" />
+    <Property Name="Plural" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SingleFile">
+    <Key>
+      <PropertyRef Name="SingleFileID" />
+    </Key>
+    <Property Name="SingleFileID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FolderID" Type="bigint" Nullable="false" />
+    <Property Name="Content1" Type="nvarchar" />
+    <Property Name="Content2" Type="nvarchar" />
+    <Property Name="IsNoContent" Type="bit" Nullable="false" />
+    <Property Name="AccessDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="MD5" Type="varchar" MaxLength="40" />
+    <Property Name="SizeInBytes" Type="decimal" Nullable="false" />
+    <Property Name="LastEntryDateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+</Schema>

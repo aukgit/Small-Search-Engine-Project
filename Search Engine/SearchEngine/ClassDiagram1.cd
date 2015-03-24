@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SearchEngine.Modules.FileStructure">
+    <Position X="2.25" Y="1.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAgBEgAgAAgAAAAAAQgAgAQBAAiAAAABABgA=</HashCode>
+      <FileName>Modules\DataStructures.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SearchEngine.Modules.HashingOrganize">
+    <Position X="4.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Modules\DataStructures.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SearchEngine.Modules.FlashPropertise">
+    <Position X="4.25" Y="2.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAQAMAIAAAAAAgAAUAAAhAABAAggAAAAAAA=</HashCode>
+      <FileName>Modules\FlashPropertise.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
